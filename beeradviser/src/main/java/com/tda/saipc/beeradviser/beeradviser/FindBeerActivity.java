@@ -4,6 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.List;
 
 
 public class FindBeerActivity extends Activity {
@@ -14,26 +19,18 @@ public class FindBeerActivity extends Activity {
         setContentView(R.layout.activity_find_beer);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_find_beer, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void FindBeers(View view) {
+        Spinner beerColor = (Spinner) findViewById(R.id.color);
+        String s = beerColor.getSelectedItem().toString();
+        List<String> l = BeerExpert.getBeers(s);
+        StringBuilder brandText = new StringBuilder();
+        for(String beer : l) {
+            brandText.append("\n" + beer );
         }
 
-        return super.onOptionsItemSelected(item);
+        TextView brands = (TextView) findViewById(R.id.brands);
+        brands.setText(brandText);
+
+
     }
 }

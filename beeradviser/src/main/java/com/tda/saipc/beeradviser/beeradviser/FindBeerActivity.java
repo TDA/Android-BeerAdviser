@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import org.w3c.dom.Text;
@@ -29,9 +30,11 @@ public class FindBeerActivity extends Activity {
         for(String beer : l) {
             brandText.append("\n" + beer );
         }
-        TextView message = (TextView) findViewById(R.id.message);
-        brandText.append("\n" + message );
+        EditText message = (EditText) findViewById(R.id.message);
+        brandText.append("\n" + message.getText().toString() );
         Intent intent = new Intent(this, ReceiveBeerOrder.class);
+        intent.putExtra("message", brandText.toString());
+
         startActivity(intent);
 
     }

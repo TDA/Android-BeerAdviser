@@ -1,12 +1,14 @@
 package com.tda.saipc.beeradviser.beeradviser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -27,10 +29,10 @@ public class FindBeerActivity extends Activity {
         for(String beer : l) {
             brandText.append("\n" + beer );
         }
-
-        TextView brands = (TextView) findViewById(R.id.brands);
-        brands.setText(brandText);
-
+        TextView message = (TextView) findViewById(R.id.message);
+        brandText.append("\n" + message );
+        Intent intent = new Intent(this, ReceiveBeerOrder.class);
+        startActivity(intent);
 
     }
 }

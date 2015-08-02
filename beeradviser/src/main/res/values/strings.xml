@@ -10,4 +10,9 @@
         <item>Amber</item>
         <item>Dark</item>
     </string-array>
+    <string name="comments">Comments to be added:</string>
+    <string name="title_activity_receive_beer_order">ReceiveBeerOrder</string>
+
+    <string name="hello_world">Hello world!</string>
+
 </resources>

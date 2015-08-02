@@ -13,21 +13,37 @@
              android:id="@+id/color"
              android:layout_alignParentTop="true"
              android:layout_centerHorizontal="true"
-             android:entries="@array/beer_colors"/>
+             android:entries="@array/beer_colors"
+            />
+
+    <TextView
+            android:text="@string/comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/comments"
+            android:layout_marginTop="72dp"
+            android:layout_below="@+id/color"
+            android:layout_centerHorizontal="true"
+            />
+
+    <EditText android:layout_width="wrap_content"
+              android:minWidth="80dp"
+              android:layout_height="wrap_content"
+              android:id="@+id/message"
+              android:layout_below="@+id/comments"
+              android:layout_centerHorizontal="true"
+            />
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Find Beer"
             android:id="@+id/beerButton"
-            android:layout_below="@+id/color" android:layout_centerHorizontal="true"
-            android:onClick="FindBeers"/>
+            android:layout_below="@+id/message"
+            android:layout_centerHorizontal="true"
+            android:onClick="FindBeers"
+            />
 
-    <TextView
-            android:text="@string/brands"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/brands"
-            android:layout_marginTop="72dp"
-            android:layout_below="@+id/beerButton" android:layout_centerHorizontal="true"
-            android:layout_alignEnd="@+id/beerButton"/>
+
 </RelativeLayout>
+

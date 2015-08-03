@@ -31,11 +31,16 @@ public class FindBeerActivity extends Activity {
             brandText.append("\n" + beer );
         }
         EditText message = (EditText) findViewById(R.id.message);
-        brandText.append("\n" + message.getText().toString() );
+        brandText.append("\n" + message.getText().toString());
         Intent intent = new Intent(this, ReceiveBeerOrder.class);
         intent.putExtra("message", brandText.toString());
-
         startActivity(intent);
+
+        Intent intent1 = new Intent(Intent.ACTION_SEND);
+        intent1.setType("text/plain");
+        intent1.putExtra(Intent.EXTRA_TEXT, brandText.toString());
+        Intent intent2 = Intent.createChooser(intent1, "select the messaging app");
+        startActivity(intent2);
 
     }
 }
